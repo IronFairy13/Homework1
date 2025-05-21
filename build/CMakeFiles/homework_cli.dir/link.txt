@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/homework_cli.dir/main.cpp.o -o homework_cli  libhomework_1.a 

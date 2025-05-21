@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/build",
+  "command": "/usr/bin/g++  -I/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/build -g -std=gnu++14 -Wall -Wextra -pedantic -Werror -o CMakeFiles/homework_1.dir/lib.cpp.o -c /mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/lib.cpp",
+  "file": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/lib.cpp",
+  "output": "CMakeFiles/homework_1.dir/lib.cpp.o"
+},
+{
+  "directory": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/build",
+  "command": "/usr/bin/g++   -g -std=gnu++14 -Wall -Wextra -pedantic -Werror -o CMakeFiles/homework_cli.dir/main.cpp.o -c /mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/main.cpp",
+  "file": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/main.cpp",
+  "output": "CMakeFiles/homework_cli.dir/main.cpp.o"
+},
+{
+  "directory": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/build",
+  "command": "/usr/bin/g++ -DBOOST_TEST_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_DYN_LINK -DBOOST_UNIT_TEST_FRAMEWORK_NO_LIB  -g -std=gnu++14 -Wall -Wextra -pedantic -Werror -o CMakeFiles/test_version.dir/test_version.cpp.o -c /mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/test_version.cpp",
+  "file": "/mnt/c/Users/savch/Study/Professional_Cpp/otus_cpp/Homework1/test_version.cpp",
+  "output": "CMakeFiles/test_version.dir/test_version.cpp.o"
+}
+]
