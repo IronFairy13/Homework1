@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
-set(PROJECT_VESRION 0.0.${PATCH_VERSION})
+set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-project(homework_1 VERSION ${PROJECT_VESRION})
+project(homework_1 VERSION ${PROJECT_VERSION})
 
-option(WITH_BOOST_TEST "Whether to build Boost test" ON)
+option(WITH_GTEST "Whether to build GTest test" ON)
 
 configure_file(version.h.in version.h)
 
@@ -25,8 +25,8 @@ target_link_libraries(homework_cli PRIVATE
     homework_1
 )
 
-if(WITH_BOOST_TEST)
-    find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+if(WITH_GTEST)
+    find_package(GTest REQUIRED)
     add_executable(test_version test_version.cpp)
 
     set_target_properties(test_version PROPERTIES
@@ -34,13 +34,9 @@ if(WITH_BOOST_TEST)
         CXX_STANDARD_REQUIRED ON
     )
 
-    set_target_properties(test_version PROPERTIES
-        COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
-        INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-    )
-
     target_link_libraries(test_version
-        ${Boost_LIBRARIES}
+        GTest::gtest
+        GTest::gtest_main
         homework_1
     )
 endif()
@@ -49,10 +45,10 @@ if (MSVC)
     target_compile_options(homework_cli PRIVATE
         /W4
     )
-    target_compile_options(homework_1PRIVATE
+    target_compile_options(homework_1 PRIVATE
         /W4
     )
-    if(WITH_BOOST_TEST)
+    if(WITH_GTEST)
         target_compile_options(test_version PRIVATE
             /W4
         )
@@ -64,7 +60,7 @@ else ()
     target_compile_options(homework_1 PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    if(WITH_BOOST_TEST)
+    if(WITH_GTEST)
         target_compile_options(test_version PRIVATE
             -Wall -Wextra -pedantic -Werror
         )
@@ -80,7 +76,7 @@ set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 set(CPACK_PACKAGE_CONTACT example@example.com)
 include(CPack)
 
-if(WITH_BOOST_TEST)
+if(WITH_GTEST)
     enable_testing()
-    add_test(test_version test_version)
+    add_test(NAME test_version COMMAND test_version)
 endif()
